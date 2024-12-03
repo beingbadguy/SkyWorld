@@ -5,15 +5,18 @@ import { CiHeart, CiMenuBurger, CiSearch } from "react-icons/ci";
 import { IoIosClose, IoMdHeartEmpty } from "react-icons/io";
 import { IoCloseOutline, IoSearch } from "react-icons/io5";
 import { FaAngleDown, FaRegHeart, FaRegUser } from "react-icons/fa";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { SlUser } from "react-icons/sl";
 import { FiUser } from "react-icons/fi";
 import { GoSearch } from "react-icons/go";
 import { MdOutlineClose } from "react-icons/md";
+import SlidingOffers from "../Components/SlidingOffers";
 
 const Layout = () => {
+  const path = useParams();
   const [activeSidebar, setActiveSidebar] = useState(""); // Manages the active sidebar ("menu", "categories", "search", "cart")
   const [showSearch, setShowSearch] = useState(false);
+  const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
 
@@ -35,11 +38,17 @@ const Layout = () => {
   return (
     <div className="select-none">
       {/* Header */}
-      {/* Header */}
+      {/* <SlidingOffers /> */}
+
       <div className="">
         <div className="p-5 md:p-4 bg-pink-500  text-white flex items-center justify-between md:px-12 fixed w-full z-[999] ">
           {/* Logo */}
-          <div className="text-xl md:text-3xl cursor-pointer">
+          <div
+            className="text-xl md:text-3xl cursor-pointer"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
             <BsBagHeart />
           </div>
 
@@ -85,7 +94,12 @@ const Layout = () => {
                 0
               </span>
             </div>
-            <div className="cursor-pointer">
+            <div
+              className="cursor-pointer"
+              onClick={() => {
+                navigate("login");
+              }}
+            >
               <FiUser />
             </div>
           </div>
@@ -224,7 +238,11 @@ const Layout = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-100 text-black py-10 px-12 mb-10 md:mb-0">
+      <footer
+        className={`${
+          path.pathname === "/login" || "/signup" ? "hidden" : ""
+        } bg-gray-100 text-black py-10 px-12 mb-10 md:mb-0`}
+      >
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
