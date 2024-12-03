@@ -7,6 +7,7 @@ import Layout from "./Layout/Layout.jsx";
 import ContextProvider from "./Store/StoreContext.jsx";
 import LoginPage from "./Pages/Login.jsx";
 import SignUpPage from "./Pages/Signup.jsx";
+import Cart from "./Pages/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <App />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       {
         path: "login",

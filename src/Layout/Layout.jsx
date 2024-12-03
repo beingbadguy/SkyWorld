@@ -5,7 +5,7 @@ import { CiHeart, CiMenuBurger, CiSearch } from "react-icons/ci";
 import { IoIosClose, IoMdHeartEmpty } from "react-icons/io";
 import { IoCloseOutline, IoSearch } from "react-icons/io5";
 import { FaAngleDown, FaRegHeart, FaRegUser } from "react-icons/fa";
-import { Outlet, useNavigate, useParams } from "react-router-dom";
+import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { SlUser } from "react-icons/sl";
 import { FiUser } from "react-icons/fi";
 import { GoSearch } from "react-icons/go";
@@ -13,7 +13,8 @@ import { MdOutlineClose } from "react-icons/md";
 import SlidingOffers from "../Components/SlidingOffers";
 
 const Layout = () => {
-  const path = useParams();
+  const {pathname} = useLocation();
+  console.log(pathname);
   const [activeSidebar, setActiveSidebar] = useState(""); // Manages the active sidebar ("menu", "categories", "search", "cart")
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
@@ -240,7 +241,7 @@ const Layout = () => {
       {/* Footer */}
       <footer
         className={`${
-          path.pathname === "/login" || "/signup" ? "hidden" : ""
+          pathname == "/login" && "/signup" ? "hidden" : ""
         } bg-gray-100 text-black py-10 px-12 mb-10 md:mb-0`}
       >
         {/* Footer Content */}

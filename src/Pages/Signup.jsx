@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { MdChevronRight } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
 
   const [email, setEmail] = useState("");
@@ -27,12 +28,19 @@ const SignUpPage = () => {
   return (
     <div>
       <div className="bg-gray-200 p-4 flex items-center gap-1 absolute w-full top-[64px] md:top-[70px] lg:top-[120px]">
-        <p className="">Home</p>
+        <p
+          className="cursor-pointer"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Home
+        </p>
         <MdChevronRight className="text-xl" />{" "}
-        <p className="text-pink-500 ">Login</p>
+        <p className="text-pink-500 ">Signup</p>
       </div>
       <div className="flex items-center justify-center min-h-[76vh] mt-10 bg-white">
-        <div className="w-full max-w-md p-6 bg-white shadow-md rounded-lg border">
+        <div className="w-full max-w-md p-6 bg-white sm:shadow-md rounded-lg sm:border">
           <h2 className="text-3xl font-bold text-center text-black mb-6">
             Sign Up
           </h2>
