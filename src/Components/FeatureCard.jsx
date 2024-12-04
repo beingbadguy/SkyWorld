@@ -42,7 +42,7 @@ const FeatureCard = () => {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="flex items-center justify-center gap-4 p-4 bg-white shadow-md rounded-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+            className="flex items-center justify-center gap-4 p-8 border bg-white shadow-md rounded-md hover:shadow-lg transition-shadow duration-300 cursor-pointer"
           >
             <div>{feature.icon}</div>
             <div>

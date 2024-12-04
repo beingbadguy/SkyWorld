@@ -5,7 +5,13 @@ import { CiHeart, CiMenuBurger, CiSearch } from "react-icons/ci";
 import { IoIosClose, IoMdHeartEmpty } from "react-icons/io";
 import { IoCloseOutline, IoSearch } from "react-icons/io5";
 import { FaAngleDown, FaRegHeart, FaRegUser } from "react-icons/fa";
-import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
+import {
+  Link,
+  Outlet,
+  useLocation,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
 import { SlUser } from "react-icons/sl";
 import { FiUser } from "react-icons/fi";
 import { GoSearch } from "react-icons/go";
@@ -13,7 +19,7 @@ import { MdOutlineClose } from "react-icons/md";
 import SlidingOffers from "../Components/SlidingOffers";
 
 const Layout = () => {
-  const {pathname} = useLocation();
+  const { pathname } = useLocation();
   console.log(pathname);
   const [activeSidebar, setActiveSidebar] = useState(""); // Manages the active sidebar ("menu", "categories", "search", "cart")
   const [showSearch, setShowSearch] = useState(false);
@@ -111,7 +117,7 @@ const Layout = () => {
           </div>
           <ul className="flex items-center justify-center gap-8 ">
             <li className="hover:text-pink-500 cursor-pointer hover:font-bold transition-all duration-200">
-              Home
+              <Link to={"/"}> Home</Link>
             </li>
             <li className="hover:text-pink-500 cursor-pointer hover:font-bold transition-all duration-200">
               Shop
@@ -120,10 +126,10 @@ const Layout = () => {
               Blog
             </li>
             <li className="hover:text-pink-500 cursor-pointer hover:font-bold transition-all duration-200">
-              Faqs
+              <Link to={"/faq"}>Faqs</Link>
             </li>
             <li className="hover:text-pink-500 cursor-pointer hover:font-bold transition-all duration-200">
-              Contact
+              <Link to={"/contact"}> Contact</Link>
             </li>
           </ul>
           <div>Sell On Martfury | Track your order</div>

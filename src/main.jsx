@@ -8,6 +8,8 @@ import ContextProvider from "./Store/StoreContext.jsx";
 import LoginPage from "./Pages/Login.jsx";
 import SignUpPage from "./Pages/Signup.jsx";
 import Cart from "./Pages/Cart.jsx";
+import Contact from "./Pages/Contact.jsx";
+import Faq from "./Pages/Faq.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "faq",
+        element:<Faq/>
+      },
+      {
+        path: "contact",
+        element:<Contact/>
       },
       {
         path: "login",
