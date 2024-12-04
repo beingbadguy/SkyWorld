@@ -17,6 +17,8 @@ import { FiUser } from "react-icons/fi";
 import { GoSearch } from "react-icons/go";
 import { MdOutlineClose } from "react-icons/md";
 import SlidingOffers from "../Components/SlidingOffers";
+import Categories from "../Components/Categories";
+import Menu from "../Components/Menu";
 
 const Layout = () => {
   const { pathname } = useLocation();
@@ -51,7 +53,7 @@ const Layout = () => {
         <div className="p-5 md:p-4 bg-pink-500  text-white flex items-center justify-between md:px-12 fixed w-full z-[999] ">
           {/* Logo */}
           <div
-            className="text-xl md:text-3xl cursor-pointer"
+            className="text-2xl md:text-3xl cursor-pointer"
             onClick={() => {
               navigate("/");
             }}
@@ -221,8 +223,8 @@ const Layout = () => {
           />
         </div>
         <div className="p-4">
-          {activeSidebar === "menu" && <p>Menu Content</p>}
-          {activeSidebar === "categories" && <p>Categories Content</p>}
+          {activeSidebar === "menu" && <Menu />}
+          {activeSidebar === "categories" && <Categories />}
           {activeSidebar === "search" && (
             <div className="flex">
               <input
