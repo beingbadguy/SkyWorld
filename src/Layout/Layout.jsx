@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BiCategoryAlt } from "react-icons/bi";
 import { BsBagHeart, BsCart } from "react-icons/bs";
-import { CiHeart, CiMenuBurger, CiSearch } from "react-icons/ci";
+import { CiHeart, CiMenuBurger, CiMenuKebab, CiSearch } from "react-icons/ci";
 import { IoIosClose, IoMdHeartEmpty } from "react-icons/io";
 import { IoCloseOutline, IoSearch } from "react-icons/io5";
 import { FaAngleDown, FaRegHeart, FaRegUser } from "react-icons/fa";
@@ -19,12 +19,14 @@ import { MdOutlineClose } from "react-icons/md";
 import SlidingOffers from "../Components/SlidingOffers";
 import Categories from "../Components/Categories";
 import Menu from "../Components/Menu";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Layout = () => {
   const { pathname } = useLocation();
   console.log(pathname);
   const [activeSidebar, setActiveSidebar] = useState(""); // Manages the active sidebar ("menu", "categories", "search", "cart")
   const [showSearch, setShowSearch] = useState(false);
+  const [showCategories, setShowCategories] = useState(false);
   const navigate = useNavigate();
 
   const [search, setSearch] = useState("");
@@ -114,8 +116,18 @@ const Layout = () => {
           </div>
         </div>
         <div className=" items-center justify-between p-4 fixed mt-[70px] w-full bg-white z-[999]  hidden lg:flex">
-          <div>
+          <div
+            className="relative flex items-center gap-1 cursor-pointer hover:text-pink-500"
+            onMouseEnter={() => setShowCategories(true)}
+            onMouseLeave={() => setShowCategories(false)}
+          >
+            <AiOutlineMenu />
             <p>Shop By Categories</p>
+            {showCategories && (
+              <div className="absolute bg-white p-4 top-full text-black left-0 shadow-md w-full">
+                <Categories />
+              </div>
+            )}
           </div>
           <ul className="flex items-center justify-center gap-8 ">
             <li className="hover:text-pink-500 cursor-pointer hover:font-bold transition-all duration-200">
@@ -210,7 +222,7 @@ const Layout = () => {
           activeSidebar ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-500`}
       >
-        <div className="flex justify-between p-4 border-b ">
+        <div className="flex justify-between p-4 border-b  ">
           <h2 className="text-lg font-semibold">
             {activeSidebar === "menu" && "Menu"}
             {activeSidebar === "categories" && "Categories"}

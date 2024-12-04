@@ -45,13 +45,13 @@ const ResponsiveSlider = () => {
         {/* Navigation Buttons */}
         <button
           onClick={goToPrevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full z-10"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-md bg-black bg-opacity-50 p-2 rounded-full z-10"
         >
           <FaChevronLeft />
         </button>
         <button
           onClick={goToNextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl bg-black bg-opacity-50 p-2 rounded-full z-10"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-md bg-black bg-opacity-50 p-2 rounded-full z-10"
         >
           <FaChevronRight />
         </button>
