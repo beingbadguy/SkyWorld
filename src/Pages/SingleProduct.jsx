@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { ContextStore } from "../Store/StoreContext";
 import { IoCartSharp, IoHeart, IoStar, IoStarOutline } from "react-icons/io5";
@@ -43,6 +43,10 @@ const SingleProduct = () => {
     );
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [name]);
+
   return (
     <div>
       <div className="bg-gray-200 p-4 flex items-center gap-1 absolute w-full top-[64px] md:top-[70px] lg:top-[120px]">
@@ -57,16 +61,17 @@ const SingleProduct = () => {
         <MdChevronRight className="text-xl" />
         <p className="text-pink-500">Product</p>
         <MdChevronRight className="text-xl" />
-        <p className="text-pink-500">{name}</p>
+        <p className="text-pink-500 md:hidden">{name.split(" ").slice(0,2).join("...")}</p>
+        <p className="text-pink-500 hidden md:block">{name}</p>
       </div>
-      <div className="container mx-auto p-6 mt-14">
+      <div className="container mx-auto p-6 mt-8  lg:mt-16">
         <div className="flex flex-col md:flex-row items-start justify-evenly gap-8">
           {/* Product Image */}
-          <div>
+          <div className="flex items-center justify-center w-full md:w-auto">
             <img
               src={product.img} // Ensure your product object includes an image URL
               alt={product.name}
-              className="w-full h-[500px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[300px] md:h-[500px] object-cover rounded-lg shadow-lg"
             />
           </div>
 
