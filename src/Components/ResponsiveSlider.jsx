@@ -30,12 +30,12 @@ const ResponsiveSlider = () => {
   return (
     <div className="mx-4 md:mx-12 ">
       {" "}
-      <div className="relative w-full h-[500px] overflow-hidden rounded-lg">
+      <div className="relative w-full h-[200px] md:h-[500px] overflow-hidden rounded-lg">
         {/* Slider Image */}
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full md:object-cover"
         />
 
         {/* Navigation Buttons */}

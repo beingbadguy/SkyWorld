@@ -4,3 +4,19 @@
   /* font-family: "Bespoke Sans", sans-serif; */
   /* font-family: "RX100", sans-serif; */
 }
+.scroll-container {
+  width: 300px;
+  height: 200px;
+  overflow: auto;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.scroll-container {
+  scrollbar-width: none;
+  scrollbar-color: transparent transparent;
+}

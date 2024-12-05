@@ -3,6 +3,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ContextStore } from "../Store/StoreContext";
 import { IoCartSharp, IoHeart, IoStar, IoStarOutline } from "react-icons/io5";
 import { MdChevronRight } from "react-icons/md";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import RelatedProducts from "../Components/RelatedProducts";
 
 const SingleProduct = () => {
   const { name } = useParams();
@@ -72,6 +74,16 @@ const SingleProduct = () => {
     };
   }, []);
 
+  // Related Products Scroll/Slider
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const handleScroll = (direction) => {
+    const scrollAmount = 300; // Adjust the scroll distance
+    setScrollPosition((prev) =>
+      direction === "left" ? prev - scrollAmount : prev + scrollAmount
+    );
+  };
+
   return (
     <div>
       <div
@@ -79,7 +91,7 @@ const SingleProduct = () => {
           showProductView
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-full"
-        } transition-all duration-300 ease-in-out p-6 bg-white top-0 z-[9999] w-full sticky flex items-center justify-evenly`}
+        } transition-all duration-300 ease-in-out p-6 hidden bg-white top-0 z-[9999] w-full sticky lg:flex items-center justify-evenly`}
       >
         <img src={product.img} alt="" className="h-20" />
         <p className="font-bold text-xl">{product.name}</p>
@@ -87,7 +99,9 @@ const SingleProduct = () => {
           <p className="text-pink-500 font-bold">₹{product.price.toFixed(2)}</p>
           <p className="line-through">₹{product.original_price.toFixed(2)}</p>
         </div>
-        <div className="bg-pink-500 p-2 rounded text-white cursor-pointer">Add to cart</div>
+        <div className="bg-pink-500 p-2 rounded text-white cursor-pointer">
+          Add to cart
+        </div>
       </div>
       <div className="bg-gray-200 p-4 flex items-center gap-1 absolute w-full top-[64px] md:top-[70px] lg:top-[120px]">
         <p
@@ -106,7 +120,7 @@ const SingleProduct = () => {
         </p>
         <p className="text-pink-500 hidden md:block">{name}</p>
       </div>
-      <div className="container mx-auto p-6   -mt-20">
+      <div className="container mx-auto p-6 mt-10  lg:-mt-20">
         <div className="flex flex-col md:flex-row items-start justify-evenly gap-8">
           {/* Product Image */}
           <div className="flex items-center justify-center w-full md:w-auto">
@@ -163,6 +177,8 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
+
+      <RelatedProducts data={data} />
     </div>
   );
 };

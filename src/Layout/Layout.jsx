@@ -262,7 +262,7 @@ const Layout = () => {
       <footer
         className={`${
           pathname == "/login" && "/signup" ? "hidden" : ""
-        } bg-gray-100 text-black py-10 px-12 mb-10 md:mb-0`}
+        } bg-pink-200 rounded-sm text-black py-10 px-4 md:px-12 mb-10 md:mb-0 `}
       >
         {/* Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
