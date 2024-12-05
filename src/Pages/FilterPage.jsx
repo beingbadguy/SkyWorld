@@ -17,7 +17,7 @@ const FilterPage = () => {
         <img src="./p2.webp" alt="" className="" />
       </div>
 
-      <div className=" px-10 p-4 flex gap-2 flex-col md:flex-row ">
+      <div className=" md:px-10 p-4 flex gap-2 flex-col md:flex-row ">
         {/* Filter Sidebar */}
         <div className="lg:w-1/4 w-full mb-8 lg:mb-0">
           <h2
