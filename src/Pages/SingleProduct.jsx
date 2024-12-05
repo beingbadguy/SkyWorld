@@ -54,12 +54,14 @@ const SingleProduct = () => {
     const scrollEffect = () => {
       clearTimeout(timeout);
       timeout = setTimeout(() => {
-        if (window.scrollY > 100) {
+        const scrollY = Math.floor(window.scrollY); // Prevent fractional values
+        if (scrollY > 100) {
           setShowProductView(true);
-        } else {
+        } else if (scrollY <= 190) {
+          // Add a small threshold to avoid unnecessary flickering
           setShowProductView(false);
         }
-      }, 100); // Adjust debounce delay as needed
+      }, 50);
     };
 
     window.addEventListener("scroll", scrollEffect);
@@ -73,9 +75,11 @@ const SingleProduct = () => {
   return (
     <div>
       <div
-        className={`  ${
-          showProductView ? "" : "hidden"
-        }   p-6 bg-white  top-0 z-[9999] w-full sticky   items-center justify-evenly`}
+        className={`${
+          showProductView
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 -translate-y-full"
+        } transition-all duration-300 ease-in-out p-6 bg-white top-0 z-[9999] w-full sticky flex items-center justify-evenly`}
       >
         <img src={product.img} alt="" className="h-20" />
         <p className="font-bold text-xl">{product.name}</p>
@@ -83,7 +87,7 @@ const SingleProduct = () => {
           <p className="text-pink-500 font-bold">₹{product.price.toFixed(2)}</p>
           <p className="line-through">₹{product.original_price.toFixed(2)}</p>
         </div>
-        <div className="bg-pink-500 p-2 rounded text-white">Add to cart</div>
+        <div className="bg-pink-500 p-2 rounded text-white cursor-pointer">Add to cart</div>
       </div>
       <div className="bg-gray-200 p-4 flex items-center gap-1 absolute w-full top-[64px] md:top-[70px] lg:top-[120px]">
         <p
@@ -102,7 +106,7 @@ const SingleProduct = () => {
         </p>
         <p className="text-pink-500 hidden md:block">{name}</p>
       </div>
-      <div className="container mx-auto p-6 mt-8  lg:mt-16">
+      <div className="container mx-auto p-6   -mt-20">
         <div className="flex flex-col md:flex-row items-start justify-evenly gap-8">
           {/* Product Image */}
           <div className="flex items-center justify-center w-full md:w-auto">

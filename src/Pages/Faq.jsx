@@ -86,7 +86,7 @@ const Faq = () => {
           Home
         </p>
         <MdChevronRight className="text-xl" />{" "}
-        <p className="text-pink-500">Login</p>
+        <p className="text-pink-500">FAQ</p>
       </div>
       <div className="min-h-[80vh] w-full p-6 bg-gray-100 mt-7 md:mt-0 lg:mt-10">
         <h2 className="text-4xl font-bold text-center text-pink-600 mb-8">

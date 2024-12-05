@@ -38,7 +38,7 @@ const Contact = () => {
           Home
         </p>
         <MdChevronRight className="text-xl" />{" "}
-        <p className="text-pink-500">Login</p>
+        <p className="text-pink-500">Contact</p>
       </div>
 
       <div className="w-full  mt-[300px]">
