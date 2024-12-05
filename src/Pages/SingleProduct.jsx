@@ -47,8 +47,44 @@ const SingleProduct = () => {
     window.scrollTo(0, 0);
   }, [name]);
 
+  const [showProductView, setShowProductView] = useState(false);
+
+  useEffect(() => {
+    let timeout;
+    const scrollEffect = () => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        if (window.scrollY > 100) {
+          setShowProductView(true);
+        } else {
+          setShowProductView(false);
+        }
+      }, 100); // Adjust debounce delay as needed
+    };
+
+    window.addEventListener("scroll", scrollEffect);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener("scroll", scrollEffect);
+    };
+  }, []);
+
   return (
     <div>
+      <div
+        className={`  ${
+          showProductView ? "" : "hidden"
+        }   p-6 bg-white  top-0 z-[9999] w-full sticky   items-center justify-evenly`}
+      >
+        <img src={product.img} alt="" className="h-20" />
+        <p className="font-bold text-xl">{product.name}</p>
+        <div>
+          <p className="text-pink-500 font-bold">₹{product.price.toFixed(2)}</p>
+          <p className="line-through">₹{product.original_price.toFixed(2)}</p>
+        </div>
+        <div className="bg-pink-500 p-2 rounded text-white">Add to cart</div>
+      </div>
       <div className="bg-gray-200 p-4 flex items-center gap-1 absolute w-full top-[64px] md:top-[70px] lg:top-[120px]">
         <p
           className="cursor-pointer"
@@ -61,7 +97,9 @@ const SingleProduct = () => {
         <MdChevronRight className="text-xl" />
         <p className="text-pink-500">Product</p>
         <MdChevronRight className="text-xl" />
-        <p className="text-pink-500 md:hidden">{name.split(" ").slice(0,2).join("...")}</p>
+        <p className="text-pink-500 md:hidden">
+          {name.split(" ").slice(0, 2).join("...")}
+        </p>
         <p className="text-pink-500 hidden md:block">{name}</p>
       </div>
       <div className="container mx-auto p-6 mt-8  lg:mt-16">

@@ -4,11 +4,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const ResponsiveSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const images = [
-    "https://images.unsplash.com/photo-1614149484421-dcd8185578cb?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1528159190360-70d4f914fee1?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1577375729078-820d5283031c?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  ];
+  const images = ["./ban1.webp", "./ban2.webp", "./ban3.webp", "./ban4.webp"];
 
   // Function to go to the next slide
   const goToNextSlide = () => {
@@ -34,7 +30,7 @@ const ResponsiveSlider = () => {
   return (
     <div className="mx-4 md:mx-12 ">
       {" "}
-      <div className="relative w-full h-[300px] overflow-hidden rounded-lg">
+      <div className="relative w-full h-[500px] overflow-hidden rounded-lg">
         {/* Slider Image */}
         <img
           src={images[currentIndex]}

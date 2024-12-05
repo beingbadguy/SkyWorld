@@ -254,7 +254,7 @@ const Layout = () => {
       </div>
 
       {/* Main Content */}
-      <div className=" pt-[90px] md:pt-[120px]">
+      <div className=" pt-[90px] md:pt-[130px]">
         <Outlet />
       </div>
 
