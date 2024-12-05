@@ -90,7 +90,7 @@ const SingleProduct = () => {
         className={`${
           showProductView
             ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
+            : "opacity-0 -translate-y-full z-0"
         } transition-all duration-300 ease-in-out p-6 hidden bg-white top-0 z-[9999] w-full sticky lg:flex items-center justify-evenly`}
       >
         <img src={product.img} alt="" className="h-20" />

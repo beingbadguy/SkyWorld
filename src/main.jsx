@@ -11,6 +11,7 @@ import Cart from "./Pages/Cart.jsx";
 import Contact from "./Pages/Contact.jsx";
 import Faq from "./Pages/Faq.jsx";
 import SingleProduct from "./Pages/SingleProduct.jsx";
+import FilterPage from "./Pages/FilterPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "login",
         element: <LoginPage />,
+      },
+      {
+        path: "products",
+        element: <FilterPage />,
       },
       {
         path: "signup",

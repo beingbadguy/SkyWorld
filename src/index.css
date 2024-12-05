@@ -6,9 +6,6 @@
 }
 
 /* Webkit (Chrome, Safari, Edge) */
-.scroll-container::-webkit-scrollbar {
-  /* display: none; */
-}
 
 /* Firefox */
 .scroll-container {

@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const CategorySection = () => {
+  const navigate = useNavigate();
+    const location = useLocation();
+
   const categories = [
     {
       name: "Smart Phones",
@@ -34,6 +38,10 @@ const CategorySection = () => {
     },
   ];
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="px-4 md:px-12 py-6">
       <h2 className="text-3xl font-bold mb-8">Shop by Category</h2>
@@ -42,6 +50,9 @@ const CategorySection = () => {
           <div
             key={index}
             className="flex items-center justify-center flex-col gap-4 relative group"
+            onClick={() => {
+              navigate(`/products`);
+            }}
           >
             {/* Category Image */}
             <div
