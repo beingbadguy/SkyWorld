@@ -36,7 +36,7 @@ const RelatedProducts = ({ data }) => {
         </button> */}
         <div
           ref={containerRef}
-          className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-hidden transition-all duration-500"
+          className="flex overflow-x-auto gap-4 scroll-smooth scrollbar-hidden transition-all duration-500 scroll-container"
           style={{ transform: `translateX(-${scrollPosition}px)` }}
         >
           {data.map((relatedProduct) => (
